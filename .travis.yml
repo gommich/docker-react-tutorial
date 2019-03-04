@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - sudo docker build -t mgomwe/docker-react-tutorial -f Dockerfile.dev .
+
+script:
+  - docker run mgomwe/docker-react-tutorial npm run test -- --coverage
